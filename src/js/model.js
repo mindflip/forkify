@@ -3,6 +3,10 @@ import { AJAX } from './helpers.js';
 
 export const state = {
   recipe: {},
+  search: {
+    query: '',
+    results: [],
+  },
 };
 
 const createRecipeObject = function (data) {
@@ -26,6 +30,28 @@ export const loadRecipe = async function (id) {
     state.recipe = createRecipeObject(data);
 
     console.log(state.recipe);
+  } catch (err) {
+    console.log(`${err} 💥💥`);
+    throw err;
+  }
+};
+
+export const loadSearchResults = async function (query) {
+  try {
+    state.search.query = query;
+
+    const data = await AJAX(`${API_URL}?search=${query}&key=${KEY}`);
+    console.log(data);
+
+    state.search.results = data.data.recipes.map(rec => {
+      return {
+        id: rec.id,
+        title: rec.title,
+        publisher: rec.publisher,
+        image: rec.image_url,
+        ...(rec.key && { key: rec.key }),
+      };
+    });
   } catch (err) {
     console.log(`${err} 💥💥`);
     throw err;
