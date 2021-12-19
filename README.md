@@ -1,8 +1,10 @@
 # Forkify
 
 Provide recipes.  
-You can search recipes, and bookmark it.  
-Whenever you access this site, you can check bookmarked recipes.
+You can search recipes, check it, and bookmark it.  
+Whenever you access this site, bookmarked recipes last.
+
+### [DEMO APP](https://forkify-mindflip.netlify.app/)
 
 ## MVC Architecture
 
@@ -20,3 +22,17 @@ Whenever you access this site, you can check bookmarked recipes.
 
 - implemented controller which connects between model and view
 - handling events from user interface side by using functions implemented in model
+
+## Functions
+
+- search recipes
+- show searched recipes applied pagination
+- show clicked recipe
+- show ingridients according to the number of servings
+- save/load/delete bookmarks
+- upload a recipe
+
+---
+
+**ref**  
+[Udemy The Complete JavaScript Course](https://www.udemy.com/course/the-complete-javascript-course/)
